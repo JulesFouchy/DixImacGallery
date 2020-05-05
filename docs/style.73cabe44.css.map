@@ -1,1 +1,0 @@
-{"version":3,"sources":["src\\css\\style.scss"],"names":[],"mappings":"AAAA;EACI;EAEA;EACA;EACA;EACA","file":"style.73cabe44.css","sourceRoot":"..","sourcesContent":["header {\r\n    background-color: orange;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n}"]}

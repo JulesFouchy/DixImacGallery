@@ -1,1 +1,0 @@
-{"version":3,"sources":["src\\css\\style.scss"],"names":[],"mappings":"AAAA,OACI,uBAAA,CAEA,YAAA,CACA,sBAAA,CACA,kBAAA,CACA","file":"style.46803c3e.css","sourceRoot":"..","sourcesContent":["header {\r\n    background-color: orange;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n}"]}
