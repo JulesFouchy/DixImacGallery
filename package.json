@@ -1,0 +1,20 @@
+{
+  "name": "diximacgallery",
+  "version": "1.0.0",
+  "description": "DixImac Gallery",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "author": "Jules Fouchy",
+  "license": "ISC",
+  "dependencies": {
+    "hyperapp": "^2.0.4"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "sass": "^1.26.5",
+    "typescript": "^3.8.3"
+  }
+}
