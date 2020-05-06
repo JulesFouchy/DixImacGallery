@@ -10,6 +10,7 @@
   "author": "Jules Fouchy",
   "license": "ISC",
   "dependencies": {
+    "@hyperapp/http": "0.0.2",
     "hyperapp": "^2.0.4"
   },
   "devDependencies": {
