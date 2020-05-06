@@ -1,12 +1,46 @@
-export default ({url, generationMethod}) => {
+import p5 from 'p5'
+import axios from 'axios'
+
+export default async ({url, generationMethod}) => {
     switch (generationMethod) {
         case 0: // static image file (jpeg/png/...)
             return url
         case 1: // p5 script
-            return 'p5'
+        const file = (await axios.get(url)).data
+        //console.log(imageFromP5script(file, 0))
+        //.catch(err => console.log(err))
+        return 'p5'
         case 2: // fragment shader
-            return 'frag'
+            const file2 = (await axios.get(url)).data
+            //console.log(imageFromFragmentShader(file2, 0))
+            p5ForFragmentShaders.drawShader(file2, Math.random())
+            return p5ForFragmentShaders.getfuData()
         default:
             return 'ERRRROR'
     }
 }
+
+const p5ForFragmentShaders = new p5( p => {
+    p.setup = () => {
+        p.createCanvas(500, 750, p.WEBGL)
+        p.background(255, 0, 0)
+    }
+    p.getfuData = () => p.canvas.toDataURL("image/png")
+    p.drawShader = (fragmentSource, rand) => {
+        p.background(0)
+        const vertSrc = `attribute vec3 aPosition;
+        attribute vec2 aTexCoord;
+        varying vec2 vTexCoord;
+
+        void main() {
+            vTexCoord = aTexCoord;
+            vec4 positionVec4 = vec4(aPosition, 1.0);
+            positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
+            gl_Position = positionVec4;
+        }`
+        const myShader = new p5.Shader(p._renderer, vertSrc, fragmentSource)
+        p.shader(myShader)
+        myShader.setUniform('u_rand', rand)
+        p.rect(-p.width/2, -p.height/2, p.width, p.height)
+    }
+}, document.body)

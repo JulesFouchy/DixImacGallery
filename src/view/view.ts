@@ -9,8 +9,8 @@ import cardRenderer from '../cardRenderer'
 const HttpTestRequest = state => [
     state,
     request({
-      url: 'http://localhost:2000/api/cardRenderInfo/5eb2804fb112fb5cc4f4eb71',
-      action: (state, data) => { console.log(data) ; const cardSrc = cardRenderer(JSON.parse(data)) ; console.log(cardSrc) ; return {...state, cardSrc0: cardSrc}},
+      url: 'http://localhost:2000/api/cardRenderInfo/5eb2bb46b112fb5cc4f4eb74',
+      action: (state, data) => { cardRenderer(JSON.parse(data)).then(data => console.log(data)) ; return {...state, cardSrc0: ''}},
       error: () => console.log('ERRORROEORORO')
     })
   ]
