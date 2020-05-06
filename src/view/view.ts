@@ -9,7 +9,7 @@ import cardRenderer from '../cardRenderer'
 const HttpTestRequest = state => [
     state,
     request({
-      url: 'http://localhost:2000/api/cardRenderInfo/5eb2bb46b112fb5cc4f4eb74',
+      url: 'http://localhost:2000/api/cardRenderInfo/5eb2822fb112fb5cc4f4eb73',
       action: (state, data) => { cardRenderer(JSON.parse(data)).then(data => console.log(data)) ; return {...state, cardSrc0: ''}},
       error: () => console.log('ERRORROEORORO')
     })
@@ -17,7 +17,7 @@ const HttpTestRequest = state => [
 
 export default state =>
     h('div', {
-        onCreate: HttpTestRequest
+        oncreate: HttpTestRequest
     }, [
         header(),
         h('button', {onclick: HttpTestRequest}, 'BOUTON'),
