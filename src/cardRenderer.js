@@ -1,29 +1,19 @@
 import p5 from 'p5'
 import axios from 'axios'
 
-export default async ({url, generationMethod}) => {
+const baseURL = 'http://localhost:2000/client/cards'//'http://diximac.herokuapp.com/client/cards'
+
+export default async ({fileName, fileFolder, generationMethod}) => {
+    const url = baseURL + '/' + fileFolder + '/' + fileName
     switch (generationMethod) {
         case 0: // static image file (jpeg/png/...)
             return url
         case 1: // p5 script
             const file = (await axios.get(url)).data
+            //console.log(file)
             //console.log(imageFromP5script(file, 0))
             //.catch(err => console.log(err))
-            p5ForScripts.drawScript(`p.push()
-            const ratio = 4.0 / 5.0 ;
-            p.noStroke() ;
-            p.fill( Math.floor(p.random(256)) , Math.floor(p.random(256)) , Math.floor(p.random(256)) , 100 ) ;
-            p.translate(p.width/2 , p.height/2) ;
-            let r = p.width/2 ;
-            p.ellipse( 0 , 0 , r*2 , r*2 ) ;
-            for( let k = 3 ; k < 20 ; ++k ){
-              let angle = p.random(p.TAU) ;
-              p.translate( r*(1-ratio) * p.cos(angle) , r*(1-ratio) * p.sin(angle) ) ;
-              p.fill( Math.floor(p.random(256)) , Math.floor(p.random(256)) , Math.floor(p.random(256)) ) ;
-              p.ellipse( 0 , 0 , r*ratio*2 , r*ratio*2 ) ;
-              r = r*ratio ;
-            }
-            p.pop()`, Math.random()*10000000)
+            p5ForScripts.drawScript(file, Math.random()*10000000)
             return p5ForScripts.getfuData()
         case 2: // fragment shader
             const file2 = (await axios.get(url)).data
@@ -67,7 +57,6 @@ const p5ForScripts = new p5( p => {
     p.drawScript = (scriptStr, rand) => {
         p.background(0)
         p.randomSeed(rand)
-        console.log(scriptStr)
         eval(scriptStr)
     }
 }, document.body)

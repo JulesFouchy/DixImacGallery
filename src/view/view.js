@@ -11,7 +11,7 @@ export default state =>
     }, [
         header(),
         h('p', {}, 'card src : ' + state.cardSrc0),
-        h('div', {}, JSON.stringify(state.authorsList)),
+        h('div', {}, Object.values(state.cardsList).map( card => h('img', {src: card.src}))),
         authorSection({
             author: {
                 name: 'Jules Fouchy',

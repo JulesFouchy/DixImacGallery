@@ -1,4 +1,4 @@
-// import {request} from "@hyperapp/http"
+import cardRenderer from '../cardRenderer'
 
 const eFetchJSONData = (dispatch, options) => {
     fetch(options.url)
@@ -58,10 +58,13 @@ const eRenderCards = (dispatch, options) => {
     options.cardsList.forEach( kvPair => {
         const cardID = kvPair[0]
         const card = kvPair[1]
-        dispatch(aSetCardSrc, {
-            cardID: cardID,
-            src: card.fileName,
-        })
+        cardRenderer(card)
+            .then(src =>
+                dispatch(aSetCardSrc, {
+                    cardID: cardID,
+                    src: src,
+                })
+            )
     })
     // fetch(options.url)
     //     .then(cardSrc => console.log('cardSrc ' + cardSrc))

@@ -3,9 +3,9 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 //
 
-import {state} from './src/state.ts'
+import {state} from './src/state.js'
 import actions from './src/actions/test.js'
-import view from './src/view/view.ts'
+import view from './src/view/view.js'
 
 import {app} from 'hyperapp'
 import logger from "hyperapp-v2-basiclogger"
