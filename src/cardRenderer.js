@@ -1,7 +1,7 @@
 import p5 from 'p5'
 import axios from 'axios'
 
-const baseURL = 'http://localhost:2000/client/cards'//'http://diximac.herokuapp.com/client/cards'
+const baseURL = 'http://diximac.herokuapp.com/client/cards' // 'http://localhost:2000/client/cards'
 
 export default async ({fileName, fileFolder, generationMethod}) => {
     const url = baseURL + '/' + fileFolder + '/' + fileName
@@ -28,6 +28,8 @@ export default async ({fileName, fileFolder, generationMethod}) => {
 const p5ForFragmentShaders = new p5( p => {
     p.setup = () => {
         p.createCanvas(500, 750, p.WEBGL)
+		p.canvas.style = "display: none;"
+		p.noLoop()
     }
     p.getfuData = () => p.canvas.toDataURL("image/png")
     p.drawShader = (fragmentSource, rand) => {
@@ -52,6 +54,8 @@ const p5ForFragmentShaders = new p5( p => {
 const p5ForScripts = new p5( p => {
     p.setup = () => {
         p.createCanvas(500, 750)
+		p.canvas.style = "display: none;"
+		p.noLoop()
     }
     p.getfuData = () => p.canvas.toDataURL("image/png")
     p.drawScript = (scriptStr, rand) => {
