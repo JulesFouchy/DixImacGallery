@@ -23,6 +23,7 @@ const aParseAndSetCardsListFromDB = (state, data) => [
             fileName: card.fileName,
             fileFolder: card.fileFolder,
             generationMethod: card.generationMethod,
+            src: '',
         }), o), {})
     }),
     ecFetchAuthors()
@@ -36,22 +37,48 @@ const ecFetchAuthors = () => [
     }
 ]
 
-const aParseAndSetAuthorsListFromDB = (state, data) => ({
-    ...state,
-    authorsList: data.reduce( (o, author) => ((o[author._id] = {
-        name: author.name,
-        link: author.link,
-        cardIDs: author.cardIDs,
-    }), o), {})
-})
+const aParseAndSetAuthorsListFromDB = (state, data) => [
+    {
+        ...state,
+        authorsList: data.reduce( (o, author) => ((o[author._id] = {
+            name: author.name,
+            link: author.link,
+            cardIDs: author.cardIDs,
+        }), o), {})
+    },
+    [
+        eRenderCards,
+        {
+            cardsList: Object.entries(state.cardsList)
+        }
+    ]
+]
 
-// const aSetCardSrc = (state, props) => ({
-//     ...state,
-//     authorsList: [
-//         ...state.authorsList,
-//         [0]: 'jules'
-//     ]
-// })
+const eRenderCards = (dispatch, options) => {
+    options.cardsList.forEach( kvPair => {
+        const cardID = kvPair[0]
+        const card = kvPair[1]
+        dispatch(aSetCardSrc, {
+            cardID: cardID,
+            src: card.fileName,
+        })
+    })
+    // fetch(options.url)
+    //     .then(cardSrc => console.log('cardSrc ' + cardSrc))
+    //     // .then(data => dispatch(options.onresponse, data))
+    //     .catch(() => dispatch(aSetCardSrc, {cardID: id, src: ''}))
+}
+
+const aSetCardSrc = (state, props) => ({
+    ...state,
+    cardsList: {
+        ...state.cardsList,
+        [props.cardID]: {
+            ...state.cardsList[props.cardID],
+            src: props.src
+        }
+    }
+})
 
 const eComputeCardSrd = (dispatch, options) => {
 
