@@ -10,11 +10,16 @@ import view from './src/view/view.ts'
 import {app} from 'hyperapp'
 import hyperappLogger from './lib/hyperappLogger'
 
+import eLoadAuthorsFromDB from './src/actions/cards'
+
 app(
     { 
-        init: state,
+        init: [
+            state,
+            eLoadAuthorsFromDB()
+        ],
         view,
         node: document.body
     },
-    hyperappLogger(process.env.NODE_ENV==='development')
+    hyperappLogger(false)
 )
