@@ -8,7 +8,7 @@ import actions from './src/actions/test.js'
 import view from './src/view/view.ts'
 
 import {app} from 'hyperapp'
-import hyperappLogger from './lib/hyperappLogger'
+import logger from "hyperapp-v2-basiclogger"
 
 import eLoadAuthorsFromDB from './src/actions/cards'
 
@@ -19,7 +19,7 @@ app(
             eLoadAuthorsFromDB()
         ],
         view,
-        node: document.body
-    },
-    hyperappLogger(false)
+        node: document.body,
+        middleware: logger
+    }
 )
