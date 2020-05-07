@@ -10,13 +10,13 @@ import view from './src/view/view.ts'
 import {app} from 'hyperapp'
 import logger from "hyperapp-v2-basiclogger"
 
-import eLoadAuthorsFromDB from './src/actions/cards'
+import ecFetchDatabase from './src/actions/cards'
 
 app(
     { 
         init: [
             state,
-            eLoadAuthorsFromDB()
+            ecFetchDatabase()
         ],
         view,
         node: document.body,
