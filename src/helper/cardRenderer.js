@@ -6,18 +6,17 @@ const baseURL = 'https://diximac.herokuapp.com/client/cards' // 'http://localhos
 export default async ({fileName, fileFolder, generationMethod}) => {
     const url = baseURL + '/' + fileFolder + '/' + fileName
     switch (generationMethod) {
-        case 0: // static image file (jpeg/png/...)
+        // Image static file (jpeg/png/...)
+        case 0:
             return url
-        case 1: // p5 script
+        // P5 Script
+        case 1:
             const file = (await axios.get(url)).data
-            //console.log(file)
-            //console.log(imageFromP5script(file, 0))
-            //.catch(err => console.log(err))
             p5ForScripts.drawScript(file, Math.random()*10000000)
             return p5ForScripts.getfuData()
-        case 2: // fragment shader
+        // Fragment Shader
+        case 2:
             const file2 = (await axios.get(url)).data
-            //console.log(imageFromFragmentShader(file2, 0))
             p5ForFragmentShaders.drawShader(file2, Math.random())
             return p5ForFragmentShaders.getfuData()
         default:
