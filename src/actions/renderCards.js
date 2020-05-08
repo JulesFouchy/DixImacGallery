@@ -24,6 +24,7 @@ const aParseAndSetCardsListFromDB = (state, data) => [
             fileFolder: card.fileFolder,
             generationMethod: card.generationMethod,
             src: '',
+            date: card.date,
         }), o), {})
     }),
     ecFetchAuthors()
@@ -44,6 +45,7 @@ const aParseAndSetAuthorsListFromDB = (state, data) => [
             name: author.name,
             link: author.link,
             cardIDs: author.cardIDs,
+            dateLatestRelease: author.dateLatestRelease,
         }), o), {})
     },
     [
