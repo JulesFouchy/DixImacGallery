@@ -10,7 +10,7 @@ import view from './src/view/view.js'
 import {app} from 'hyperapp'
 import logger from "hyperapp-v2-basiclogger"
 
-import ecFetchDatabase from './src/actions/cards'
+import { ecFetchDatabase } from './src/actions/cards'
 
 app(
     { 

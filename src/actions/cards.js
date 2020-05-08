@@ -7,8 +7,8 @@ const eFetchJSONData = (dispatch, options) => {
         .catch(() => dispatch(options.onresponse, {}))
 }
 
-export default () => [ // ecFetchCards
-    eFetchJSONData,
+const ecFetchDatabase = () => [
+    eFetchJSONData, // Fetch Cards
     {
         url: `https://diximac.herokuapp.com/api/cards`,
         onresponse: aParseAndSetCardsListFromDB,
@@ -54,17 +54,29 @@ const aParseAndSetAuthorsListFromDB = (state, data) => [
     ]
 ]
 
+const renderAndSetSrc = (dispatch, card, cardID) => {
+    cardRenderer(card)
+        .then(src =>
+            dispatch(aSetCardSrc, {
+                cardID: cardID,
+                src: src,
+            })
+        )
+}
+
+const ecRenderAndSetSrc = (card, cardID) => [
+    (dispatch, options) => renderAndSetSrc(dispatch, options.card, options.cardID),
+    {
+        card,
+        cardID
+    }
+]
+
 const eRenderCards = (dispatch, options) => {
     options.cardsList.forEach( kvPair => {
         const cardID = kvPair[0]
         const card = kvPair[1]
-        cardRenderer(card)
-            .then(src =>
-                dispatch(aSetCardSrc, {
-                    cardID: cardID,
-                    src: src,
-                })
-            )
+        renderAndSetSrc(dispatch, card, cardID)
     })
     // fetch(options.url)
     //     .then(cardSrc => console.log('cardSrc ' + cardSrc))
@@ -109,3 +121,8 @@ const aRenderCard = (state, cardRenderInfoAsString) => [
 // module.exports = {
 //     eLoadAuthorsFromDB,
 // }
+
+module.exports = {
+    ecFetchDatabase,
+    ecRenderAndSetSrc,
+}
