@@ -10,7 +10,7 @@ const eFetchJSONData = (dispatch, options) => {
 export default () => [ // ecFetchCards
     eFetchJSONData,
     {
-        url: `http://diximac.herokuapp.com/api/cards`,
+        url: `https://diximac.herokuapp.com/api/cards`,
         onresponse: aParseAndSetCardsListFromDB,
     }
 ]
@@ -32,7 +32,7 @@ const aParseAndSetCardsListFromDB = (state, data) => [
 const ecFetchAuthors = () => [
     eFetchJSONData,
     {
-        url: `http://diximac.herokuapp.com/api/authors`,
+        url: `https://diximac.herokuapp.com/api/authors`,
         onresponse: aParseAndSetAuthorsListFromDB,
     }
 ]
@@ -92,7 +92,7 @@ const aLoadCardRenderInfoFromDB = (state, cardID) => [
     [
         request,
         {
-            url: `http://diximac.herokuapp.com/api/cardRenderInfo/${cardID}`,
+            url: `https://diximac.herokuapp.com/api/cardRenderInfo/${cardID}`,
             action: (state, data) => { cardRenderer(JSON.parse(data)).then(data => console.log(data)) ; return {...state, cardSrc0: ''}},
             error: () => console.log('ERRORROEORORO')
         }
