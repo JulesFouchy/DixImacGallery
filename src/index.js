@@ -9,7 +9,7 @@ import mainView from './views/mainView.js'
 import { app } from 'hyperapp'
 import logger from "hyperapp-v2-basiclogger"
 
-import { ecFetchDatabase } from './actions/cards'
+import { ecFetchDatabase } from './actions/renderCards'
 
 app(
     { 

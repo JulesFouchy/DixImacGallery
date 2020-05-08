@@ -1,5 +1,5 @@
 import { h } from 'hyperapp'
-import { ecRenderAndSetSrc } from '../actions/cards'
+import { ecRenderAndSetSrc } from '../actions/renderCards'
 
 export default (props) => h('span', {class: 'cardWrapper'}, 
     h('img', 

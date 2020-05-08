@@ -54,34 +54,17 @@ const aParseAndSetAuthorsListFromDB = (state, data) => [
     ]
 ]
 
+const eRenderCards = (dispatch, options) => {
+    options.cardsList.forEach( kvPair => {
+        renderAndSetSrc(dispatch, kvPair[1], kvPair[0])
+    })
+}
+
 const renderAndSetSrc = (dispatch, card, cardID) => {
     cardRenderer(card)
         .then(src =>
-            dispatch(aSetCardSrc, {
-                cardID: cardID,
-                src: src,
-            })
+            dispatch(aSetCardSrc, {cardID, src})
         )
-}
-
-const ecRenderAndSetSrc = (card, cardID) => [
-    (dispatch, options) => renderAndSetSrc(dispatch, options.card, options.cardID),
-    {
-        card,
-        cardID
-    }
-]
-
-const eRenderCards = (dispatch, options) => {
-    options.cardsList.forEach( kvPair => {
-        const cardID = kvPair[0]
-        const card = kvPair[1]
-        renderAndSetSrc(dispatch, card, cardID)
-    })
-    // fetch(options.url)
-    //     .then(cardSrc => console.log('cardSrc ' + cardSrc))
-    //     // .then(data => dispatch(options.onresponse, data))
-    //     .catch(() => dispatch(aSetCardSrc, {cardID: id, src: ''}))
 }
 
 const aSetCardSrc = (state, props) => ({
@@ -95,33 +78,16 @@ const aSetCardSrc = (state, props) => ({
     }
 })
 
-const eComputeCardSrd = (dispatch, options) => {
-
-}
-
-const aLoadCardRenderInfoFromDB = (state, cardID) => [
-    state,
-    [
-        request,
-        {
-            url: `https://diximac.herokuapp.com/api/cardRenderInfo/${cardID}`,
-            action: (state, data) => { cardRenderer(JSON.parse(data)).then(data => console.log(data)) ; return {...state, cardSrc0: ''}},
-            error: () => console.log('ERRORROEORORO')
-        }
-    ]
+// To set the src of only one card at a time
+const ecRenderAndSetSrc = (card, cardID) => [
+    (dispatch, options) => renderAndSetSrc(dispatch, options.card, options.cardID),
+    {
+        card,
+        cardID
+    }
 ]
 
-const aRenderCard = (state, cardRenderInfoAsString) => [
-    state,
-    [
-
-    ]
-]
-
-// module.exports = {
-//     eLoadAuthorsFromDB,
-// }
-
+// EXPORTS
 module.exports = {
     ecFetchDatabase,
     ecRenderAndSetSrc,

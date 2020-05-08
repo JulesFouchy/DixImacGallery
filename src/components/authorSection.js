@@ -1,6 +1,6 @@
 import { h } from 'hyperapp'
-import author from './author'
-import card from'./card'
+import author from './Author'
+import card from'./Card'
 
 export default props => {
     return h('div', {class: 'authorSection'}, [
