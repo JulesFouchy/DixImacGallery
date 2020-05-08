@@ -1,4 +1,4 @@
-import cardRenderer from '../cardRenderer'
+import cardRenderer from '../helper/cardRenderer'
 
 const eFetchJSONData = (dispatch, options) => {
     fetch(options.url)

@@ -4,10 +4,8 @@ import authorSection from '../components/authorSection'
 import Card from '../components/card'
 
 export default state =>
-    h('div', {
-    }, [
+    h('div', {}, [
         header(),
-        h('p', {}, 'card src : ' + state.cardSrc0),
         h('div', {}, Object.entries(state.cardsList).map( kvPair => Card({
             card: kvPair[1],
             cardID: kvPair[0]

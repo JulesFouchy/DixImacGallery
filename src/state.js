@@ -7,8 +7,6 @@
 
 //export const state:State = {
 export const state = {
-    text: 'Hello',
-    cardSrc0: '', //'http://diximac.herokuapp.com/client/cards/static/JulesFouchy_PetitesPlanetes.png',
     cardsList: {},
     authorsList: {},
 }
