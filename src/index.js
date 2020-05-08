@@ -3,14 +3,13 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 //
 
-import {state} from './src/state.js'
-import actions from './src/actions/test.js'
-import view from './src/view/view.js'
+import { state } from './state.js'
+import mainView from './views/mainView.js'
 
-import {app} from 'hyperapp'
+import { app } from 'hyperapp'
 import logger from "hyperapp-v2-basiclogger"
 
-import { ecFetchDatabase } from './src/actions/cards'
+import { ecFetchDatabase } from './actions/cards'
 
 app(
     { 
@@ -18,7 +17,7 @@ app(
             state,
             ecFetchDatabase()
         ],
-        view,
+        view: mainView,
         node: document.body,
         middleware: logger
     }

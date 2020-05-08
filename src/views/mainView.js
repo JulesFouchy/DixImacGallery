@@ -1,11 +1,6 @@
-import {h} from 'hyperapp'
-import actions from '../actions/test.js'
-import authorSection from '../components/authorSection'
+import { h } from 'hyperapp'
 import header from './header'
-
-import cardRenderer from '../cardRenderer'
-import eLoadAuthorsFromDB from '../actions/cards'
-
+import authorSection from '../components/authorSection'
 import Card from '../components/card'
 
 export default state =>
