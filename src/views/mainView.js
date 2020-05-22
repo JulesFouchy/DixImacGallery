@@ -7,7 +7,7 @@ import Filter from './Filter'
 export default state =>
     h('div', {}, [
         Header(),
-        Filter(),
+        Filter({value: state.authorFilter}),
         state.cardIDFilter === ''
         ? AllAuthors({
             authors: filterAuthorsByName(state.authorsList, state.authorFilter),
