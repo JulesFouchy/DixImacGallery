@@ -1,3 +1,5 @@
+import kvarrToObj from './kvarrToObj'
+
 const filterCardsByID = (cardsObj, id) => {
     const o = {}
     o[id] = cardsObj[id]
@@ -12,7 +14,16 @@ const filterAuthorsByCardID = (authorsObj, id) => {
     return o
 }
 
+const filterAuthorsByName = (authorsObj, nameStr) => {
+    const nameStrUp = nameStr.toUpperCase()
+    const arrFiltered = Object.entries(authorsObj).filter(
+        kv => kv[1].name.toUpperCase().includes(nameStrUp)
+    )
+    return kvarrToObj(arrFiltered)
+}
+
 module.exports = {
     filterCardsByID,
     filterAuthorsByCardID,
+    filterAuthorsByName,
 }
