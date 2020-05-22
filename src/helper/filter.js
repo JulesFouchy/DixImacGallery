@@ -7,11 +7,15 @@ const filterCardsByID = (cardsObj, id) => {
 }
 
 const filterAuthorsByCardID = (authorsObj, id) => {
-    const authorID = Object.entries(authorsObj).find(kvPair => kvPair[1].cardIDs.includes(id))[0]
-    const o = {}
-    o[authorID] = authorsObj[authorID]
-    o[authorID].cardIDs = o[authorID].cardIDs.filter( cardID => cardID === id )
-    return o
+    const authorIDSearch = Object.entries(authorsObj).find(kvPair => kvPair[1].cardIDs.includes(id))
+    if (authorIDSearch !== undefined) {
+        const authorID = authorIDSearch[0]
+        const o = {}
+        o[authorID] = authorsObj[authorID]
+        o[authorID].cardIDs = o[authorID].cardIDs.filter( cardID => cardID === id )
+        return o
+    }
+    return {}
 }
 
 const filterAuthorsByName = (authorsObj, nameStr) => {
