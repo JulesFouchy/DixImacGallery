@@ -1,11 +1,13 @@
 import { h } from 'hyperapp'
-import header from './header'
+import Header from './Header'
 import AllAuthors from '../components/AllAuthors'
 import { filterCardsByID, filterAuthorsByCardID, filterAuthorsByName } from '../helper/filter'
+import Filter from './Filter'
 
 export default state =>
     h('div', {}, [
-        header(),
+        Header(),
+        Filter(),
         state.cardIDFilter === ''
         ? AllAuthors({
             authors: filterAuthorsByName(state.authorsList, state.authorFilter),
