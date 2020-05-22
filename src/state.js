@@ -6,9 +6,9 @@
 // }
 
 //export const state:State = {
-export const state = {
+export default (cardIDFilter) => ({
     cardsList: {},
     authorsList: {},
-    cardIDFilter: '',
+    cardIDFilter: cardIDFilter,
     authorFilter: '',
-}
+})

@@ -3,7 +3,7 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 //
 
-import { state } from './state.js'
+import genState from './state.js'
 import mainView from './views/mainView.js'
 
 import { app } from 'hyperapp'
@@ -14,7 +14,7 @@ import { ecFetchDatabase } from './actions/renderCards'
 app(
     { 
         init: [
-            state,
+            genState(window.location.search.substr(1)),
             ecFetchDatabase()
         ],
         view: mainView,
