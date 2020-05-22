@@ -11,7 +11,7 @@ const filterAuthorsByCardID = (authorsObj, id) => {
     if (authorIDSearch !== undefined) {
         const authorID = authorIDSearch[0]
         const o = {}
-        o[authorID] = authorsObj[authorID]
+        o[authorID] = {...authorsObj[authorID]}
         o[authorID].cardIDs = o[authorID].cardIDs.filter( cardID => cardID === id )
         return o
     }
