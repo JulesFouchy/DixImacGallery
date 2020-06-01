@@ -62,11 +62,16 @@ const eRenderCards = (dispatch, options) => {
     })
 }
 
-const renderAndSetSrc = (dispatch, card, cardID) => {
-    cardRenderer(card)
-        .then(src =>
-            dispatch(aSetCardSrc, {cardID, src})
-        )
+const renderAndSetSrc = async (dispatch, card, cardID) => {
+    try {
+        const src = await cardRenderer(card)
+        dispatch(aSetCardSrc, {cardID, src})
+    }
+    catch (err) {
+        console.log('ERR WHILE RENDERING CARD')
+        console.log(err)
+        await setTimeout(renderAndSetSrc(dispatch, card, cardID), 1000)
+    }
 }
 
 const aSetCardSrc = (state, props) => ({
