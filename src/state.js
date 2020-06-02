@@ -11,4 +11,5 @@ export default (cardIDFilter) => ({
     authorsList: {},
     cardIDFilter: cardIDFilter,
     authorFilter: '',
+    isAuthorInputFocused: false,
 })

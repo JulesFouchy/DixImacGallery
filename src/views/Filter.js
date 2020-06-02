@@ -1,13 +1,18 @@
 import { h } from 'hyperapp'
+import InputWithFilter from '../components/InputWithFilter'
 
 export default (props) => h('div', {}, [
     props.cardIDFilter === ''
     ? h('span', {}, [
-        h('input',
+        InputWithFilter(
         {
-            oninput: (state, event) => ({ ...state, authorFilter: event.target.value }),
-            placeholder: 'Filter authors by name',
-            value: props.authorFilter,
+            paramsObj: {
+                oninput: (state, event) => ({ ...state, authorFilter: event.target.value }),
+                placeholder: 'Filter authors by name',
+                value: props.authorFilter,
+            },
+            authors: props.authors,
+            bShowDropdown: props.isAuthorInputFocused
         }),
         props.authorFilter !== '' && h('button', 
         {

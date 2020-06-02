@@ -10,3 +10,45 @@ header {
 img.card {
     height: 450px;
 }
+
+/* --------------------------------- */
+/* --------- DROPDOWN LIST --------- */
+/* --------------------------------- */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdownList {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdownContent {
+	border-top: 1px solid #9C9C9C;
+	border-radius: 4px;
+
+	width: 92px;
+	z-index: 10;
+    position: absolute;
+    
+    display: none;
+}
+
+.showDropdown {
+    display: block;
+}
+// .dropdownContentElement {
+// 	border: 1px solid #9C9C9C;
+// 	border-top: 0px;
+// 	border-radius: 4px;
+// 	text-align: center;
+// 	//background-color: rgb(250, 250, 250);
+// 	background-color: white;
+// 	color: #9C9C9C;
+// 	font: 400 13.3333px Arial;
+// 	cursor: pointer;
+// 	padding-top: 5px;
+// 	padding-bottom: 4px;
+// 	&:hover {
+// 		color: white;
+// 	}
+// }
