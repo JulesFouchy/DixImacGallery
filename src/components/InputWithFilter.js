@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 
 export default (props) =>
-    h('span',
+    h('div',
         {
             class: 'dropdownList',
         },

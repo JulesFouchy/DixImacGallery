@@ -1,8 +1,7 @@
 import { h } from 'hyperapp'
 import InputWithFilter from '../components/InputWithFilter'
 
-export default (props) => h('div', {}, [
-    props.cardIDFilter === ''
+export default (props) => props.cardIDFilter === ''
     ? h('span', {}, [
         InputWithFilter(
         {
@@ -27,4 +26,3 @@ export default (props) => h('div', {}, [
             onclick: (state) => ({...state, authorFilter: '', cardIDFilter: ''})
         }, 'See the whole gallery'),
     ])
-])
