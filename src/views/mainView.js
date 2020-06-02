@@ -13,12 +13,12 @@ export default state =>
             authorFilter: state.authorFilter,
             cardIDFilter: state.cardIDFilter,
             getArtistFromCardID: (cardID) => Object.values(state.authorsList).find(author => author.cardIDs.includes(cardID)),
-            authors: objToArray(state.authorsList),
+            authors: objToArray(filterAuthorsByName(state.authorsList, state.authorFilter)),
             isAuthorInputFocused: state.isAuthorInputFocused
         }),
         state.cardIDFilter === ''
         ? AllAuthors({
-            authors: filterAuthorsByName(state.authorsList, state.authorFilter),
+            authors: state.authorsList,
             cards: state.cardsList,
         })
         : AllAuthors({
