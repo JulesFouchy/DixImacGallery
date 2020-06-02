@@ -26,8 +26,18 @@ const filterAuthorsByName = (authorsObj, nameStr) => {
     return kvarrToObj(arrFiltered)
 }
 
+const filterAuthorsByID = (authorsObj, id) => Object.entries(authorsObj)
+    .filter(
+        kv => kv[0] === id
+    )
+    .map( kv => ({
+        id: kv[0],
+        ...kv[1]
+    }))
+
 module.exports = {
     filterCardsByID,
     filterAuthorsByCardID,
     filterAuthorsByName,
+    filterAuthorsByID,
 }

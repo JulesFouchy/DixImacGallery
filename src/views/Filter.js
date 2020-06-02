@@ -11,7 +11,11 @@ export default (props) => props.cardIDFilter === ''
                 value: props.authorFilter,
             },
             authors: props.authors,
-            bShowDropdown: props.isAuthorInputFocused
+            bShowDropdown: props.isAuthorInputFocused,
+            onClick: (state, author) => ({
+                    ...state,
+                    showOnlyThisAuthor: author.id,
+                }),
         }),
         props.authorFilter !== '' && h('button', 
         {

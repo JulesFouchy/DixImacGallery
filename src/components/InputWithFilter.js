@@ -30,9 +30,7 @@ export default (props) =>
                     h('div',
                         {
                             class: 'dropdownContentElement',
-                            onclick: () => {
-                                // go to author.id
-                            }
+                            onclick: (state) => props.onClick(state, author)
                         },
                         author.name
                     )
@@ -41,15 +39,4 @@ export default (props) =>
         ]
     )
 
-// window.onclick = (event) => {
-//     if (!(event.target.matches('.dropdownButton') || event.target.matches('#ddText') || event.target.matches('#ddIcon'))) {
-//         const dropdowns = document.getElementsByClassName('dropdownContent')
-//         for (let i = 0; i < dropdowns.length; i++) {
-//             const openDropdown = dropdowns[i]
-//             if (openDropdown.classList.contains('show')) {
-//                 openDropdown.classList.remove('show')
-//             }
-//         }
-//         setIconDown()
-//     }
-// }
+window.onclick = (event) => console.log(event.target)
