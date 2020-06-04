@@ -15,7 +15,7 @@ export default (props) => props.cardIDFilter === ''
             onClick: (state, author) => ({
                     ...state,
                     showOnlyThisAuthor: author.id,
-                }),
+            }),
         }),
         props.authorFilter !== '' && h('button', 
         {
