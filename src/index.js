@@ -8,6 +8,8 @@ import mainView from './views/mainView.js'
 
 import { app } from 'hyperapp'
 import logger from "hyperapp-v2-basiclogger"
+import SubHistoryPop from './lib/SubHistoryPop'
+import partsOfStateToSaveInHistory from './helper/partsOfStateToSaveInHistory'
 
 import { ecFetchDatabase } from './actions/renderCards'
 
@@ -25,14 +27,19 @@ const tryFind = (identifier) => {
 const cardID = tryFind('cardid')
 const authorID = tryFind('authorid')
 
+const state = genState(cardID, authorID)
+
+window.history.pushState(partsOfStateToSaveInHistory(state), '')
+
 app(
     { 
         init: [
-            genState(cardID, authorID),
+            state,
             ecFetchDatabase()
         ],
         view: mainView,
+        subscriptions: SubHistoryPop,
         node: document.body,
-        middleware: logger
+        //middleware: logger
     }
 )
