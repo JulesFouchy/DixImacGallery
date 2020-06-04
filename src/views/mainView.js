@@ -14,7 +14,8 @@ export default state =>
             cardIDFilter: state.cardIDFilter,
             getArtistFromCardID: (cardID) => Object.values(state.authorsList).find(author => author.cardIDs.includes(cardID)),
             authors: objToArray(filterAuthorsByName(state.authorsList, state.authorFilter)),
-            isAuthorInputFocused: state.isAuthorInputFocused
+            isAuthorInputFocused: state.isAuthorInputFocused,
+            showOnlyThisAuthor: state.showOnlyThisAuthor
         }),
         state.cardIDFilter !== ''
         ? AllAuthors({

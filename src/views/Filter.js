@@ -1,6 +1,17 @@
 import { h } from 'hyperapp'
 import InputWithFilter from '../components/InputWithFilter'
 
+const resetFilterButton = () => h('button', 
+    {
+        onclick: (state) => ({
+            ...state,
+            authorFilter: '',
+            cardIDFilter: '',
+            showOnlyThisAuthor: null,
+        })
+    }, 
+    'See the whole gallery')
+
 export default (props) => props.cardIDFilter === ''
     ? h('span', {}, [
         InputWithFilter(
@@ -15,18 +26,15 @@ export default (props) => props.cardIDFilter === ''
             onClick: (state, author) => ({
                     ...state,
                     showOnlyThisAuthor: author.id,
+                    authorFilter: author.name,
             }),
         }),
-        props.authorFilter !== '' && h('button', 
-        {
-            onclick: (state) => ({...state, authorFilter: '', cardIDFilter: ''})
-        }, 'See the whole gallery')
+        props.showOnlyThisAuthor !== null 
+            && resetFilterButton()
     ])
     : h('span', {}, [
         h('button', {
             onclick: (state) => ({...state, authorFilter: props.getArtistFromCardID(props.cardIDFilter).name, cardIDFilter: ''})
         }, 'Other cards from this artist'),
-        h('button', {
-            onclick: (state) => ({...state, authorFilter: '', cardIDFilter: ''})
-        }, 'See the whole gallery'),
+        resetFilterButton(),
     ])
