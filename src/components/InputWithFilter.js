@@ -14,21 +14,21 @@ export default (props) =>
                         ...state,
                         isAuthorInputFocused: true,
                     }),
-                    onblur: (state) => [
-                        state,
-                        // hide the list *after a little delay*
-                        // because otherwise the button disappears before its onclick event is processed
-                        [
-                            (dispatch, props) => setTimeout(() => dispatch(props.action), props.interval),
-                            {
-                                action: (state) => ({
-                                    ...state,
-                                    isAuthorInputFocused: false,
-                                }),
-                                interval: 100,
-                            }
-                        ]
-                    ],
+                    // onblur: (state) => [
+                    //     state,
+                    //     // hide the list *after a little delay*
+                    //     // because otherwise the button disappears before its onclick event is processed
+                    //     [
+                    //         (dispatch, props) => setTimeout(() => dispatch(props.action), props.interval),
+                    //         {
+                    //             action: (state) => ({
+                    //                 ...state,
+                    //                 isAuthorInputFocused: false,
+                    //             }),
+                    //             interval: 100,
+                    //         }
+                    //     ]
+                    // ],
                     ...props.paramsObj,
                 }
             ),
@@ -41,7 +41,10 @@ export default (props) =>
                     h('div',
                         {
                             class: 'dropdownContentElement',
-                            onclick: (state) => props.onClick(state, author)
+                            onclick: (state) => props.onClick({
+                                ...state,
+                                isAuthorInputFocused: false,
+                            }, author)
                         },
                         author.name
                     )

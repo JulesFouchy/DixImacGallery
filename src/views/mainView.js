@@ -7,7 +7,16 @@ import objToArray from '../helper/objToArray'
 import kvToObjWithID from '../helper/kvToObjWithID'
 
 export default state =>
-    h('div', {}, [
+    h('div', {
+        onclick: (state, event) => {
+            const newState = {...state}
+            const myClass = event.target.classList[0]
+            if (myClass !== 'dropdownInput' && myClass !== 'dropdownContentElement') {
+                newState.isAuthorInputFocused = false
+            }
+            return newState
+        }
+    }, [
         Header(),
         Filter(
         {
