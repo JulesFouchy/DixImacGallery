@@ -4,6 +4,7 @@ import AllAuthors from '../components/AllAuthors'
 import { filterCardsByID, filterAuthorsByCardID, filterAuthorsByName, filterAuthorsByID } from '../helper/filter'
 import Filter from './Filter'
 import objToArray from '../helper/objToArray'
+import kvToObjWithID from '../helper/kvToObjWithID'
 
 export default state =>
     h('div', {}, [
@@ -12,7 +13,10 @@ export default state =>
         {
             authorFilter: state.authorFilter,
             cardIDFilter: state.cardIDFilter,
-            getArtistFromCardID: (cardID) => Object.values(state.authorsList).find(author => author.cardIDs.includes(cardID)),
+            getArtistFromCardID: (cardID) => kvToObjWithID(
+                Object.entries(state.authorsList)
+                .find(kv => kv[1].cardIDs.includes(cardID))
+            ),
             authors: objToArray(filterAuthorsByName(state.authorsList, state.authorFilter)),
             isAuthorInputFocused: state.isAuthorInputFocused,
             showOnlyThisAuthor: state.showOnlyThisAuthor
