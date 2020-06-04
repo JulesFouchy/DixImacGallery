@@ -11,18 +11,24 @@ import logger from "hyperapp-v2-basiclogger"
 
 import { ecFetchDatabase } from './actions/renderCards'
 
-const search = window.location.search
-let begin = search.indexOf('cardid=')
-if (begin !== -1) begin += 'cardid='.length
-const end = search.indexOf('&')
-const cardID = begin === - 1 ? ''
-                : end === - 1 ? search.substring(begin)
-                  : search.substring(begin, end)
+const tryFind = (identifier) => {
+    const search = window.location.search
+    const opt = identifier+'='
+    let begin = search.indexOf(opt)
+    if (begin !== -1) begin += opt.length
+    const end = search.indexOf('&')
+    return begin === - 1 ? ''
+                    : end === - 1 ? search.substring(begin)
+                      : search.substring(begin, end)
+}
+
+const cardID = tryFind('cardid')
+const authorID = tryFind('authorid')
 
 app(
     { 
         init: [
-            genState(cardID),
+            genState(cardID, authorID),
             ecFetchDatabase()
         ],
         view: mainView,

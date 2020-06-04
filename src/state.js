@@ -6,11 +6,11 @@
 // }
 
 //export const state:State = {
-export default (cardIDFilter) => ({
+export default (cardIDFilter, authorID) => ({
     cardsList: {},
     authorsList: {},
     cardIDFilter: cardIDFilter,
     authorFilter: '',
     isAuthorInputFocused: false,
-    showOnlyThisAuthor: null,
+    showOnlyThisAuthor: authorID || null,
 })
