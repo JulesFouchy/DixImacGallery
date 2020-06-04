@@ -6,7 +6,7 @@ const createAction_GoToGalleryOfAuthor = (author) => (state) => {
     return {
         ...state,
         showOnlyThisAuthor: author.id,
-        authorFilter: author.name,
+        authorFilter: '',
         cardIDFilter: '',
     }
 }
