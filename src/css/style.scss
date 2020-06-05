@@ -59,6 +59,13 @@ img.card {
 .icon {
 	width: 20px;
 	font-size: 18px;
+	margin-left: 2px;
+	vertical-align: middle;
+}
+a:hover, a:visited, a:link, a:active {
+	&.icon {
+		text-decoration: none;
+	}
 }
 
 /* --------------------------------- */
