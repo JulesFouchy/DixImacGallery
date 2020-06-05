@@ -1,5 +1,8 @@
+$myOrange: #ffa640;
+$myPink: #db76d4;
+
 header {
-    background-color: orange;
+    background-color: $myOrange;
 
     display: flex;
     justify-content: center;
@@ -9,6 +12,8 @@ header {
 
 img.card {
     height: 450px;
+	box-shadow: 1px 1px 12px -3px;
+	border-radius: 5px;
 }
 
 /* --------------------------------- */
@@ -99,7 +104,7 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .authorSection {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba($color: #ffecc7, $alpha: 0.8);
 	border-radius: 3px;
 	padding: 5px 15px;
 	margin: 40px 0;
@@ -112,6 +117,7 @@ h1 {
 }
 
 h2 {
+	// color: white;
 	text-align: center;
 	font-size: 1.5rem;
 	margin: 5px 0;
@@ -191,7 +197,7 @@ a {
     left: 0;
     z-index: 100;
     overflow: auto;
-    background-color: #ffa640;
+    background-color: $myOrange;
     box-shadow: 2px 5px 17px #00000059;
 }
     .sidebar::-webkit-scrollbar {
