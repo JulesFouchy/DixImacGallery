@@ -68,6 +68,22 @@ a:hover, a:visited, a:link, a:active {
 	}
 }
 
+.cardWrapper {
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+.cardsList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.regenerateButton {
+	// display: inline-block;
+}
+
 /* --------------------------------- */
 /* -- STYLE IMPORTED FROM DIXIMAC -- */
 /* --------------------------------- */
@@ -85,6 +101,8 @@ a:hover, a:visited, a:link, a:active {
 .authorSection {
 	background-color: rgba(255, 255, 255, 0.7);
 	border-radius: 3px;
+	padding: 5px 15px;
+	margin: 40px 0;
 }
 
 h1 {
@@ -94,7 +112,9 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 5px 0;
 	// font-family: 'Berkshire Swash', cursive;
 	// font-weight: normal;
 }
