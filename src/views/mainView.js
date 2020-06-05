@@ -8,6 +8,7 @@ import kvToObjWithID from '../helper/kvToObjWithID'
 
 export default state =>
     h('div', {
+        id: 'main',
         onclick: (state, event) => {
             const newState = {...state}
             const myClass = event.target.classList[0]

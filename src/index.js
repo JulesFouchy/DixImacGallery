@@ -40,6 +40,6 @@ app(
         view: mainView,
         subscriptions: SubHistoryPop,
         node: document.body,
-        //middleware: logger
+        middleware: logger
     }
 )

@@ -1,8 +1,11 @@
 import { h } from 'hyperapp'
+import LinkInsta from './LinkInsta'
+import LinkPortfolio from './LinkPortfolio'
 
-export default props => {
+export default author => {
     return h('div', {class: 'author'}, [
-        h('p', {class: 'name'}, props.name),
-        h('a', {href: props.link}, props.link)
+        h('h2', {class: 'name'}, author.name),
+        author.link && LinkPortfolio(author.link),
+        author.linkInsta && LinkInsta(author.linkInsta),
     ])
 }

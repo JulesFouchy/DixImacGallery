@@ -5,10 +5,7 @@ export default (props) => h('div', {},
     Object.values(props.authors)
         .sort( (a, b) => (new Date(b.dateLatestRelease)) - (new Date(a.dateLatestRelease)))
         .map( author => AuthorSection({
-            author: {
-                name: author.name,
-                link: author.link,
-            },
+            author,
             cards: author.cardIDs.map( id => ({
                 card: props.cards[id],
                 cardID: id,
