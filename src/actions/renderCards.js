@@ -45,6 +45,7 @@ const aParseAndSetAuthorsListFromDB = (state, data) => [
             name: author.name,
             link: author.link,
             linkInsta: author.linkInsta,
+            linkFB: author.linkFB,
             cardIDs: author.cardIDs,
             dateLatestRelease: author.dateLatestRelease,
         }), o), {})
