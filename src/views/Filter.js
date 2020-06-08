@@ -35,7 +35,7 @@ const button_GoToGalleryOfAuthor = (author) => h('button',
     'Other cards from this artist')
 
 export default (props) => props.cardIDFilter === ''
-    ? h('span', {}, [
+    ? h('div', {id: 'filterSection'}, [
         InputWithFilter(
         {
             paramsObj: {
@@ -50,7 +50,7 @@ export default (props) => props.cardIDFilter === ''
         props.showOnlyThisAuthor !== null 
             && button_ResetFilter()
     ])
-    : h('span', {}, [
+    : h('div', {id: 'filterSection'}, [
         button_GoToGalleryOfAuthor(props.getArtistFromCardID(props.cardIDFilter)),
         button_ResetFilter(),
     ])

@@ -23,6 +23,11 @@ img.card {
 /* --------- DROPDOWN LIST --------- */
 /* --------------------------------- */
 
+#filterSection {
+    display: flex;
+    flex-direction: column;
+}
+
 .dropdownInput {
 	display: block;
     height: calc(1.5em + .75rem + 2px);
