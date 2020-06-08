@@ -18,7 +18,8 @@ header {
 img.card {
     height: 450px;
 	box-shadow: 1px 1px 12px -3px;
-	border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 /* --------------------------------- */
@@ -99,6 +100,8 @@ img.card {
 .authorWrapper {
     display: flex;
     justify-content: center;
+    
+    margin-top: 7.5px;
 }
 
 .author {
@@ -174,8 +177,9 @@ button {
 	background-color: rgba($color: #ffecc7, $alpha: 0.8);
 	border-radius: 3px;
 	padding: 5px 15px;
+	padding-bottom: 15px;
 	margin: 15px 0;
-	margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 h1 {
