@@ -185,7 +185,11 @@ button {
 h1 {
     font-size: 2rem;
     font-family: 'Berkshire Swash', cursive;
-	font-weight: normal;
+    font-weight: normal;
+}
+
+.clickable {
+    cursor: pointer;
 }
 
 h2 {

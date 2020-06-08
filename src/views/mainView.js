@@ -18,7 +18,7 @@ export default state =>
             return newState
         }
     }, [
-        Header(),
+        Header(state.showOnlyThisAuthor !== null || state.cardIDFilter !== ''),
         Filter(
         {
             authorFilter: state.authorFilter,

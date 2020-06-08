@@ -1,6 +1,7 @@
 import { h } from 'hyperapp'
 import InputWithFilter from '../components/InputWithFilter'
 import partsOfStateToSaveInHistory from '../helper/partsOfStateToSaveInHistory'
+import resetFilter from '../actions/resetFilter'
 
 const createAction_GoToGalleryOfAuthor = (author) => (state) => {
     const newState = {
@@ -15,16 +16,7 @@ const createAction_GoToGalleryOfAuthor = (author) => (state) => {
 
 const button_ResetFilter = () => h('button', 
     {
-        onclick: (state) => {
-            const newState = {
-                ...state,
-                showOnlyThisAuthor: null,
-                authorFilter: '',
-                cardIDFilter: '',
-            }
-            window.history.pushState(partsOfStateToSaveInHistory(newState), '', '/')
-            return newState
-        }
+        onclick: resetFilter,
     }, 
     'See the whole gallery')
 
