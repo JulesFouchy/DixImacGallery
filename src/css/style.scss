@@ -1,4 +1,5 @@
 $myOrange: #ffa640;
+$myOrangeLighter: #ffcc80;
 $myPink: #db76d4;
 
 header {
@@ -67,17 +68,20 @@ img.card {
 	display: block;
 }
 .dropdownContentElement {
-	border: 1px solid #9C9C9C;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14.5px;
+    
+	border: 1px solid rgb(207, 207, 207);
 	border-top: 0px;
 	border-radius: 4px;
 	text-align: center;
 	background-color: white;
 	color: black;
 	cursor: pointer;
-	padding-top: 5px;
-	padding-bottom: 4px;
+	padding-top: 9px;
+	padding-bottom: 7px;
 	&:hover {
-        background-color: rgb(218, 218, 218);
+        background-color: $myOrangeLighter;
 	}
 }
 
