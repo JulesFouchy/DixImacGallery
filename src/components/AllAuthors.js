@@ -11,5 +11,6 @@ export default (props) => h('div', {},
                 cardID: id,
             })),
             bFilteringCard: props.bFilteringCard,
+            bFilteringAuthors: props.bFilteringAuthors,
         }))
 )

@@ -8,7 +8,11 @@ export default props => {
         h('div', {class: 'cardsList'}, 
             props.cards
                 .sort( (a, b) => (new Date(b.card.date)) - (new Date(a.card.date)))
-                .map( card => Card({...card, bFilteringCard: props.bFilteringCard}) )
+                .map( card => Card({
+                    ...card,
+                    bFilteringCard: props.bFilteringCard,
+                    bShowBig: (props.cards.length < 2 && props.bFilteringAuthors) || props.bFilteringCard,
+                }) )
         )
     ])
 }
