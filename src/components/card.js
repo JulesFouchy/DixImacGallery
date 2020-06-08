@@ -16,9 +16,9 @@ const createAction_GoToCard = (cardID) => (state) => {
 export default (props) => h('div', {class: 'cardWrapper'}, [
         h('img',
             {
-                class: 'card' + (!props.bFilteringCard ? ' clickable' : '') + (props.bShowBig ? ' bigCard' : ''),
+                class: 'card' + (props.bShowBig ? ' bigCard' : ' clickable'),
                 src: props.card.src,
-                onclick: !props.bFilteringCard && createAction_GoToCard(props.cardID),
+                onclick: !props.bShowBig && createAction_GoToCard(props.cardID),
             }
         ),
         props.card.generationMethod !== 0
