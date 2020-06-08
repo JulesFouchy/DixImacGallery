@@ -27,7 +27,8 @@ export default state =>
                 Object.entries(state.authorsList)
                 .find(kv => kv[1].cardIDs.includes(cardID))
             ),
-            authors: objToArray(filterAuthorsByName(state.authorsList, state.authorFilter)),
+            authors: objToArray(filterAuthorsByName(state.authorsList, state.authorFilter))
+                .sort( (a, b) => (new Date(b.dateLatestRelease)) - (new Date(a.dateLatestRelease))),
             isAuthorInputFocused: state.isAuthorInputFocused,
             showOnlyThisAuthor: state.showOnlyThisAuthor
         }),
