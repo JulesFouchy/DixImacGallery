@@ -89,6 +89,18 @@ img.card {
 /* -------- AUTHOR CREDITS --------- */
 /* --------------------------------- */
 
+.authorWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.author {
+    border: 1.5px solid $myOrange;
+    background-color: $myOrangeLighter;
+    padding: 9px;
+    border-radius: 4px;
+}
+
 .icon {
 	width: 20px;
 	font-size: 18px;
