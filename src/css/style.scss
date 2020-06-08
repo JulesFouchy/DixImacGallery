@@ -27,6 +27,12 @@ img.card {
 #filterSection {
     display: flex;
     flex-direction: column;
+    margin: 15px;
+    margin-bottom: 0;
+
+    button {
+        margin-bottom: 15px;
+    }
 }
 
 .dropdownInput {
@@ -125,9 +131,16 @@ a:hover, a:visited, a:link, a:active {
 	justify-content: space-around;
 }
 
-.regenerateButton {
-	// display: inline-block;
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+
+    margin-top: 15px;
 }
+
+// .regenerateButton {
+// 	display: inline-block;
+// }
 
 /* --------------------------------- */
 /* -- STYLE IMPORTED FROM DIXIMAC -- */
@@ -151,8 +164,8 @@ a:hover, a:visited, a:link, a:active {
 	background-color: rgba($color: #ffecc7, $alpha: 0.8);
 	border-radius: 3px;
 	padding: 5px 15px;
-	margin: 40px 0;
-	margin-top: 0;
+	margin: 15px 0;
+	margin-bottom: 25px;
 }
 
 h1 {
