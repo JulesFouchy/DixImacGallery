@@ -20,14 +20,7 @@ const button_ResetFilter = () => h('button',
     }, 
     'See the whole gallery')
 
-const button_GoToGalleryOfAuthor = (author) => h('button', 
-    {
-        onclick: createAction_GoToGalleryOfAuthor(author)
-    }, 
-    'Other cards from this artist')
-
-export default (props) => props.cardIDFilter === ''
-    ? h('div', {id: 'filterSection'}, [
+export default (props) => h('div', {id: 'filterSection'}, [
         InputWithFilter(
         {
             paramsObj: {
@@ -39,10 +32,6 @@ export default (props) => props.cardIDFilter === ''
             bShowDropdown: props.isAuthorInputFocused,
             onClick: (state, author) => createAction_GoToGalleryOfAuthor(author)(state),
         }),
-        props.showOnlyThisAuthor !== null 
+        props.bButtonBackToGallery
             && button_ResetFilter()
-    ])
-    : h('div', {id: 'filterSection'}, [
-        button_GoToGalleryOfAuthor(props.getArtistFromCardID(props.cardIDFilter)),
-        button_ResetFilter(),
     ])

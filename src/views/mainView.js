@@ -30,7 +30,7 @@ export default state =>
             authors: objToArray(filterAuthorsByName(state.authorsList, state.authorFilter))
                 .sort( (a, b) => (new Date(b.dateLatestRelease)) - (new Date(a.dateLatestRelease))),
             isAuthorInputFocused: state.isAuthorInputFocused,
-            showOnlyThisAuthor: state.showOnlyThisAuthor
+            bButtonBackToGallery: state.showOnlyThisAuthor !== null || state.cardIDFilter !== ''
         }),
         state.cardIDFilter !== ''
         ? AllAuthors({
