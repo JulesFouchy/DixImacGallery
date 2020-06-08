@@ -3,7 +3,9 @@ import Author from './Author'
 import Card from'./Card'
 
 export default props => {
-    return h('div', {class: 'authorSection'}, [
+    const bShowBig = (props.cards.length < 2 && props.bFilteringAuthors) || props.bFilteringCard
+
+    return h('div', {class: 'authorSection' + (bShowBig ? ' withBG' : '')}, [
         Author(props.author),
         h('div', {class: 'cardsList'}, 
             props.cards
@@ -11,7 +13,7 @@ export default props => {
                 .map( card => Card({
                     ...card,
                     bFilteringCard: props.bFilteringCard,
-                    bShowBig: (props.cards.length < 2 && props.bFilteringAuthors) || props.bFilteringCard,
+                    bShowBig,
                 }) )
         )
     ])
