@@ -1,5 +1,6 @@
 $myOrange: #ffa640;
 $myOrangeLighter: #ffcc80;
+$myOrangeVeryLight: #ffe5bd;
 $myPink: #db76d4;
 
 header {
@@ -134,8 +135,17 @@ a:hover, a:visited, a:link, a:active {
 button {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+    background-color: rgb(252, 252, 252);
+    &:hover {
+        background-color: $myOrangeLighter;
+        border-color: $myOrange;
+    }
+    border-radius: 3px;
+    border: 1px solid #ced4da;
+    cursor: pointer;
 
     margin-top: 15px;
+    padding: 10px;
 }
 
 // .regenerateButton {
