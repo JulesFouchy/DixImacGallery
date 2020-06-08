@@ -7,6 +7,6 @@ export default (state) => {
         authorFilter: '',
         cardIDFilter: '',
     }
-    window.history.pushState(partsOfStateToSaveInHistory(newState), '', '/')
+    window.history.pushState(partsOfStateToSaveInHistory(newState), '', window.location.pathname)
     return newState
 }

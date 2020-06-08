@@ -10,7 +10,7 @@ const createAction_GoToGalleryOfAuthor = (author) => (state) => {
         authorFilter: '',
         cardIDFilter: '',
     }
-    window.history.pushState(partsOfStateToSaveInHistory(newState), '', '/?authorid='+author.id)
+    window.history.pushState(partsOfStateToSaveInHistory(newState), '', window.location.pathname+'?authorid='+author.id)
     return newState
 }
 
