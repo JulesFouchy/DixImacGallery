@@ -36,14 +36,17 @@ export default state =>
         ? AllAuthors({
             authors: filterAuthorsByCardID(state.authorsList, state.cardIDFilter),
             cards: filterCardsByID(state.cardsList, state.cardIDFilter),
+            bFilteringCard: state.cardIDFilter !== '',
         })
         : state.showOnlyThisAuthor !== null
         ? AllAuthors({
             authors: filterAuthorsByID(state.authorsList, state.showOnlyThisAuthor),
             cards: state.cardsList,
+            bFilteringCard: state.cardIDFilter !== '',
         })
         : AllAuthors({
             authors: state.authorsList,
             cards: state.cardsList,
+            bFilteringCard: state.cardIDFilter !== '',
         })
     ])

@@ -9,6 +9,7 @@ export default (props) => h('div', {},
             cards: author.cardIDs.map( id => ({
                 card: props.cards[id],
                 cardID: id,
-            }))
+            })),
+            bFilteringCard: props.bFilteringCard,
         }))
 )
