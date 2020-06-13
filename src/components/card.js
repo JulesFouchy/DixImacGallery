@@ -25,6 +25,6 @@ export default (props) => h('div', {class: 'cardWrapper'}, [
             && h('button', {
                 class: 'regenerateButton',
                 onclick: state => [state, ecRenderAndSetSrc(props.card, props.cardID)]
-            }, 'This card is random, press to see another version')
+            }, '⭯') // ↺
     ]
 )

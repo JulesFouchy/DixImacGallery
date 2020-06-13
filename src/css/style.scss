@@ -3,6 +3,18 @@ $myOrangeLighter: #ffcc80;
 $myOrangeVeryLight: #ffe5bd;
 $myPink: #db76d4;
 
+html {
+    font-family: 'Berkshire Swash', cursive;
+}
+
+// button {
+//     font-family: 'Berkshire Swash', cursive;
+// }
+
+// .dropdownInput {
+//     font-family: 'Berkshire Swash', cursive;
+// }
+
 header {
     background-color: $myOrange;
     padding: 20px 40px;
@@ -115,6 +127,8 @@ img.card {
     background-color: $myOrangeLighter;
     padding: 9px;
     border-radius: 4px;
+    font-family: 'PT Serif', serif;
+    font-weight: normal;
 }
 
 .icon {
@@ -142,7 +156,7 @@ a:hover, a:visited, a:link, a:active {
 }
 
 button {
-    font-family: 'Roboto', sans-serif;
+    // font-family: 'Roboto', sans-serif;
     font-size: 14px;
     background-color: rgb(252, 252, 252);
     &:hover {
@@ -205,7 +219,7 @@ h2 {
 	// color: white;
 	text-align: center;
 	font-size: 1.5rem;
-	margin: 5px 0;
+    margin: 5px 0;
 	// font-family: 'Berkshire Swash', cursive;
 	// font-weight: normal;
 }
@@ -213,14 +227,16 @@ h2 {
 a {
     color:#7511bd;
     
-    font-family: 'Roboto', sans-serif;
+    // font-family: 'Roboto', sans-serif;
     text-decoration: none;
 }
     a:hover {
         text-decoration: none;
         color: #6c3492;
     }
-
+#linkToDiximac {
+    font-size: 17px;
+}
 
 .btn-secondary {
     background-color: #422159;

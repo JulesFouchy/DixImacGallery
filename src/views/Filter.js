@@ -18,7 +18,7 @@ const button_ResetFilter = () => h('button',
     {
         onclick: resetFilter,
     }, 
-    'See the whole gallery')
+    'Back to the gallery')
 
 export default (props) => h('div', {id: 'filterSection'}, [
         InputWithFilter(
