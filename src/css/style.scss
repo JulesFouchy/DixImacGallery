@@ -47,6 +47,7 @@ img.card {
 #filterSection {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 15px;
     margin-bottom: 0;
 
@@ -156,24 +157,29 @@ a:hover, a:visited, a:link, a:active {
 }
 
 button {
-    // font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    background-color: rgb(252, 252, 252);
-    &:hover {
-        background-color: $myOrangeLighter;
-        border-color: $myOrange;
-    }
-    border-radius: 3px;
-    border: 1px solid #ced4da;
     cursor: pointer;
+    border-radius: 3px;
+    
+    margin: 5px auto;
+    width:  40px;
+    height: 40px;
+    padding: 0;
 
-    margin-top: 15px;
-    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+    text-justify: center;
+    font-weight: bold;
+
+    color: rgb(0, 0, 0);
+    background-color: $myOrangeLighter;
+    border: 1px solid $myOrange;
+    box-shadow: 3px 3px 5px -3px black;
+
+    &:hover {
+        color: white;
+        background-color: $myOrange;
+    }
 }
-
-// .regenerateButton {
-// 	display: inline-block;
-// }
 
 /* --------------------------------- */
 /* -- STYLE IMPORTED FROM DIXIMAC -- */

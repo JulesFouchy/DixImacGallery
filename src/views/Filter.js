@@ -17,8 +17,9 @@ const createAction_GoToGalleryOfAuthor = (author) => (state) => {
 const button_ResetFilter = () => h('button', 
     {
         onclick: resetFilter,
+        title: 'Back to gallery',
     }, 
-    'Back to the gallery')
+    '🡄')
 
 export default (props) => h('div', {id: 'filterSection'}, [
         InputWithFilter(
