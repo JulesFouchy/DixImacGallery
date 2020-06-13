@@ -9,5 +9,6 @@ export default link =>
             src : FBLogo,
             class: 'icon',
             alt: 'Facebook',
+            title: 'Facebook',
         })
     )

@@ -9,5 +9,6 @@ export default link =>
             src : InstaLogo,
             class: 'icon',
             alt: 'Instagram',
+            title: 'Instagram',
         })
     )

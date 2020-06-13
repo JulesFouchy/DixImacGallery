@@ -5,4 +5,5 @@ export default link =>
     h('a', {
         href: link,
         class: 'icon',
+        title: 'Portfolio',
     }, '🎨')
