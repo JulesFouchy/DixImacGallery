@@ -5,7 +5,7 @@ import Card from'./Card'
 export default props => {
     const bShowBig = (props.cards.length < 2 && props.bFilteringAuthors) || props.bFilteringCard
 
-    return h('div', {class: 'authorSection' + (bShowBig ? ' withBG' : '')}, [
+    return h('div', {class: 'authorSection'}, [
         Author(props.author),
         h('div', {class: 'cardsList'}, 
             props.cards
