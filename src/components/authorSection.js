@@ -6,7 +6,7 @@ export default props => {
     const bShowBig = (props.cards.length < 2 && props.bFilteringAuthors) || props.bFilteringCard
 
     return h('div', {class: 'authorSection'}, [
-        Author(props.author),
+        Author(props.author, props.bWeAreOnAuthorsPage),
         h('div', {class: 'cardsList'}, 
             props.cards
                 .sort( (a, b) => (new Date(b.card.date)) - (new Date(a.card.date)))

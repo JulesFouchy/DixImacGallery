@@ -6,6 +6,7 @@ export default (props) => h('div', {},
         .sort( (a, b) => (new Date(b.dateLatestRelease)) - (new Date(a.dateLatestRelease)))
         .map( author => AuthorSection({
             author,
+            bWeAreOnAuthorsPage: author.id === props.showOnlyThisAuthor,
             cards: author.cardIDs.map( id => ({
                 card: props.cards[id],
                 cardID: id,
