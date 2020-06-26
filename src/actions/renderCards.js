@@ -42,6 +42,7 @@ const aParseAndSetAuthorsListFromDB = (state, data) => [
     {
         ...state,
         authorsList: data.reduce( (o, author) => ((o[author._id] = {
+            id: author._id,
             name: author.name,
             link: author.link,
             linkInsta: author.linkInsta,
