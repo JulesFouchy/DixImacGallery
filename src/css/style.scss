@@ -191,7 +191,6 @@ button {
 #main {
 	padding: 25px;
 
-	background-image: url(../img/bg-game.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -200,6 +199,19 @@ button {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.bg-dawn {
+    background-image: url(../img/bg-dawn.png);
+}
+.bg-day {
+    background-image: url(../img/bg-day.png);
+}
+.bg-dusk {
+    background-image: url(../img/bg-dusk.png);
+}
+.bg-night {
+    background-image: url(../img/bg-night.png);
 }
 
 .authorSection {

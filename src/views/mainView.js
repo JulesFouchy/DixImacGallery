@@ -5,10 +5,12 @@ import { filterCardsByID, filterAuthorsByCardID, filterAuthorsByName, filterAuth
 import Filter from './Filter'
 import objToArray from '../helper/objToArray'
 import kvToObjWithID from '../helper/kvToObjWithID'
+import getBgDaytimeClass from '../helper/getBgDaytimeClass'
 
 export default state =>
     h('div', {
         id: 'main',
+        class: getBgDaytimeClass(),
         onclick: (state, event) => {
             const newState = {...state}
             const myClass = event.target.classList[0]
