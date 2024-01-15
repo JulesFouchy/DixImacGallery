@@ -1,5 +1,5 @@
 import { h } from 'hyperapp'
-import Header from './Header'
+import Header from './header'
 import AllAuthors from '../components/AllAuthors'
 import { filterCardsByID, filterAuthorsByCardID, filterAuthorsByName, filterAuthorsByID } from '../helper/filter'
 import Filter from './Filter'
