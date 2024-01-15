@@ -1,6 +1,6 @@
 import { h } from 'hyperapp'
-import Author from './Author'
-import Card from'./Card'
+import Author from './author'
+import Card from'./card'
 
 export default props => {
     const bShowBig = (props.cards.length < 2 && props.bFilteringAuthors) || props.bFilteringCard

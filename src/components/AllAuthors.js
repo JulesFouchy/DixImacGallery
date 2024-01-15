@@ -1,5 +1,5 @@
 import { h } from 'hyperapp'
-import AuthorSection from './AuthorSection'
+import AuthorSection from './authorSection'
 
 export default (props) => h('div', {}, 
     Object.values(props.authors)
