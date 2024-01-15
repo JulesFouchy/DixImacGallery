@@ -10,7 +10,6 @@
   "author": "Jules Fouchy",
   "license": "ISC",
   "dependencies": {
-    "@hyperapp/http": "0.0.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "hyperapp": "^2.0.22",
