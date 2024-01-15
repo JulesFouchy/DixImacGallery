@@ -8,5 +8,5 @@ export default (bTheresSomethingToReset) => h('header', {}, [
         onclick: resetFilter,
         class: 'clickable'
     } : {}, 'DixImac Gallery'),
-    h('a', {href: 'http://diximac.herokuapp.com/', id: 'linkToDiximac'}, [bold('▷'), ' Play DixImac ', bold('◁')]) // ▶ ◀
+    h('a', {href: 'https://diximac.onrender.com/', id: 'linkToDiximac'}, [bold('▷'), ' Play DixImac ', bold('◁')]) // ▶ ◀
 ])

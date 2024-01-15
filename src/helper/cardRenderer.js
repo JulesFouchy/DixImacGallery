@@ -1,7 +1,7 @@
 import p5 from 'p5'
 import axios from 'axios'
 
-const baseURL = 'https://diximac.herokuapp.com/client/cards' // 'http://localhost:2000/client/cards'
+const baseURL = 'https://diximac.onrender.com/client/cards' // 'http://localhost:2000/client/cards'
 
 export default async ({fileName, fileFolder, generationMethod}) => {
     const url = baseURL + '/' + fileFolder + '/' + fileName

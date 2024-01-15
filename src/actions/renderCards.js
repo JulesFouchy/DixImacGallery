@@ -10,7 +10,7 @@ const eFetchJSONData = (dispatch, options) => {
 const ecFetchDatabase = () => [
     eFetchJSONData, // Fetch Cards
     {
-        url: `https://diximac.herokuapp.com/api/cards`,
+        url: `https://diximac.onrender.com/api/cards`,
         onresponse: aParseAndSetCardsListFromDB,
     }
 ]
@@ -33,7 +33,7 @@ const aParseAndSetCardsListFromDB = (state, data) => [
 const ecFetchAuthors = () => [
     eFetchJSONData,
     {
-        url: `https://diximac.herokuapp.com/api/authors`,
+        url: `https://diximac.onrender.com/api/authors`,
         onresponse: aParseAndSetAuthorsListFromDB,
     }
 ]
