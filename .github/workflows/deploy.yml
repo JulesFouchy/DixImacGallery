@@ -1,0 +1,25 @@
+name: Deploy
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "12.x"
+      - run: npm i
+      - run: npm run build
+      - name: Zip files
+        run: |
+          cd ${{github.workspace}}
+          tar -cvzf docs.tar.gz ./docs
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{github.workspace}}/docs.tar.gz
