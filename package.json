@@ -13,7 +13,7 @@
     "@hyperapp/http": "0.0.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
-    "hyperapp": "^2.0.4",
+    "hyperapp": "^2.0.22",
     "hyperapp-v2-basiclogger": "^0.3.0",
     "p5": "^1.0.0"
   },
